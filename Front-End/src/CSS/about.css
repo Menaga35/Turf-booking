@@ -1,0 +1,46 @@
+.turf-info-container {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.turf-about,
+.turf-contact {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.turf-about h2,
+.turf-contact h2 {
+  margin-bottom: 12px;
+  color: #1a202c;
+}
+
+.turf-about p {
+  color: #4a5568;
+  margin-bottom: 12px;
+}
+
+.turf-about ul {
+  padding-left: 18px;
+}
+
+.turf-about li {
+  margin-bottom: 6px;
+  color: #2d3748;
+}
+
+.turf-contact p {
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .turf-info-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,42 +1,74 @@
-exports.registerUser = async (req, res) => {
+const Login = require("../Model/User");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const Register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-
-    const exist = await User.findOne({ email });
-    if (exist) return res.status(400).json({ msg: "User already exists" });
-
+    const { username, email, password } = req.body;
+    if (!username || !email || !password)
+      return res.status(401).json({ message: "All fields are required" });
+    const oldName = await Login.findOne({ username });
+    if (oldName)
+      return res.status(401).json({ message: "name already exists" });
+    const oldEmail = await Login.findOne({ email });
+    if (oldEmail)
+      return res.status(401).json({ message: "Email already exists" });
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    await User.create({ name, email, password: hashedPassword });
-
-    res.status(201).json({ msg: "User registered successfully" });
+    const newUser = await Login.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+    res.status(200).json({
+      message: "user Registered successfully",
+      Login: {
+        id: newUser._id,
+        username: newUser.username,
+        email: newUser.email,
+      },
+    });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
-exports.loginUser = async (req, res) => {
+// for login
+
+const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ msg: "Invalid credentials" });
+    if (!email || !password) {
+      return res.status(401).json({ message: "All fields are required" });
+    }
+
+    const user = await Login.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid pass" });
+    }
 
-    const token = jwt.sign(
-      { id: user._id, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" }
-    );
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
+      expiresIn: "10d",
+    });
 
-    res.json({ token });
+    res.status(200).json({
+      message: "Login successful",
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
-exports.getUserProfile = async (req, res) => {
-  res.json(req.user);
-};
+module.exports = { Register, loginUser };

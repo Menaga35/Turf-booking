@@ -1,0 +1,236 @@
+/* ===============================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   THEME VARIABLES
+================================ */
+:root {
+  --bg-color: #f4f6f8;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --text-color: #111827;
+  --muted-text: #6b7280;
+  --accent: #22c55e;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --card-bg: #020617;
+  --nav-bg: #020617;
+  --text-color: #e5e7eb;
+  --muted-text: #9ca3af;
+  --accent: #22c55e;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   GLOBAL STYLES
+================================ */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: var(--nav-bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box {
+  width: 42px;
+  height: 42px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* CENTER */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 28px;
+}
+
+.nav-center a {
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.nav-center a:hover {
+  color: var(--accent);
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Logout button */
+.logout-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.logout-btn:hover {
+  color: #ef4444;
+}
+
+/* ===============================
+   PAGE SPACING
+================================ */
+.page {
+  padding-top: 100px; /* so content is below navbar */
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ===============================
+   HOME PAGE
+================================ */
+.home-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-top: 80px;
+  color: var(--text-color);
+}
+
+/* ===============================
+   CARD
+================================ */
+.card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 500px;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .nav-center {
+    display: none; /* hide center links on mobile */
+  }
+
+  .home-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar-inner {
+    padding: 0 20px;
+  }
+
+  .nav-left .brand-name {
+    display: none; /* hide brand name on very small screens */
+  }
+}

@@ -43,3 +43,40 @@ exports.getAllBookings = async (req, res) => {
     res.status(500).json({ msg: "Server error", error: error.message });
   }
 };
+const Booking = require("../Model/Booking");
+
+const ALL_SLOTS = [
+  "06:00-07:00",
+  "07:00-08:00",
+  "08:00-09:00",
+  "09:00-10:00",
+  "16:00-17:00",
+  "17:00-18:00",
+  "18:00-19:00",
+  "19:00-20:00",
+];
+
+// GET AVAILABLE SLOTS
+exports.getAvailableSlots = async (req, res) => {
+  try {
+    const { turfId, date } = req.query;
+
+    if (!turfId || !date) {
+      return res.status(400).json({ msg: "turfId and date are required" });
+    }
+
+    // Find booked slots
+    const bookings = await Booking.find({ turf: turfId, date });
+
+    const bookedSlots = bookings.map((b) => b.timeSlot);
+
+    // Filter available slots
+    const availableSlots = ALL_SLOTS.filter(
+      (slot) => !bookedSlots.includes(slot)
+    );
+
+    res.json({ availableSlots });
+  } catch (error) {
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};

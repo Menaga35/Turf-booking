@@ -1,21 +1,13 @@
+
+const { VerifyToken } = require("../Middleware/Token");
 const express = require("express");
 const router = express.Router();
-
-const {
-  registerUser,
-  loginUser,
-  getUserProfile,
-} = require("../Controller/userController");
-
-const authMiddleware = require("../Middleware/Token");
-
-// Register new user
-router.post("/register", registerUser);
-
-// Login user
+const { Register, loginUser } = require("../Controller/userController");
 router.post("/login", loginUser);
-
-// Get logged-in user profile
-router.get("/profile", authMiddleware, getUserProfile);
-
-module.exports = router;
+router.post("/register", Register);
+router.get("/test", VerifyToken, (req, res) => {
+  res.json({
+    message: "Access granted",
+    userId: req.user.id,
+  });
+});

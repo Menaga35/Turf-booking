@@ -2,31 +2,11 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Login", // ⚠️ FIX: your user model is Login, not User
-      required: true,
-    },
-    placeId: {
-      type: String,
-      required: true,
-    },
-    from: {
-      type: String,
-      required: true,
-    },
-    to: {
-      type: String,
-      required: true,
-    },
-    travelDate: {
-      type: String,
-      required: true,
-    },
-    seats: {
-      type: [String],
-      required: true,
-    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    turf: { type: mongoose.Schema.Types.ObjectId, ref: "Turf" },
+    date: { type: String }, // YYYY-MM-DD
+    timeSlot: { type: String }, // "06:00-07:00"
+    paid: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
