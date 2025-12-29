@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
-import "../CSS/myBooking.css"; // Make sure this path is correct
+import "../CSS/myBooking.css";
 
 export default function MyBooking() {
   const [bookings, setBookings] = useState([]);
@@ -9,6 +9,12 @@ export default function MyBooking() {
     const savedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
     setBookings(savedBookings);
   }, []);
+
+  // ✅ Clear bookings function
+  const clearBookings = () => {
+    localStorage.removeItem("bookings"); // clear storage
+    setBookings([]); // clear state (page becomes empty)
+  };
 
   if (bookings.length === 0) {
     return (
@@ -26,6 +32,12 @@ export default function MyBooking() {
       <Navbar />
       <div className="mybooking-wrapper">
         <h2>My Booking History</h2>
+
+        {/* ✅ Clear Page Button */}
+        <button className="clear-btn" onClick={clearBookings}>
+          Clear All Bookings
+        </button>
+
         <div className="bookings-list">
           {bookings.map((booking, index) => (
             <div className="booking-card" key={index}>

@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../Utills/Api";
-import "../CSS/login.css";
+import "../CSS/login.css"
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
-  const location = useLocation(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,14 +29,7 @@ export default function Login() {
         })
       );
 
-      // 🔥 REDIRECT LOGIC
-      if (location.state?.redirectTo) {
-        navigate(location.state.redirectTo, {
-          state: { turf: location.state.turf },
-        });
-      } else {
-        navigate("/"); // Home
-      }
+      navigate("/"); // navigate to Turfs page
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
     }

@@ -15,6 +15,7 @@ function App() {
         {/* ================= PUBLIC ROUTES ================= */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
 
         {/* Turf details MUST be public (Reserve button handles auth) */}
         <Route path="/turf-details" element={<TurfDetails />} />
