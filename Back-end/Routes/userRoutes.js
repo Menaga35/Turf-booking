@@ -15,21 +15,33 @@ const express = require("express");
 const router = express.Router();
 
 // Import controllers and middleware
-const { Register, loginUser } = require("../Controller/userController");
-const { VerifyToken } = require("../Middleware/Token");
+let VerifyToken, Register, loginUser;
+try {
+  ({ VerifyToken } = require("../Middleware/Token"));
+} catch (err) {
+  console.error("Failed to import VerifyToken:", err.message);
+}
 
-// Helper to ensure a handler is a function
-function ensureFunction(fn, name) {
-  if (typeof fn !== "function") {
-    throw new TypeError(`${name} must be a function`);
+try {
+  ({ Register, loginUser } = require("../Controller/userController"));
+} catch (err) {
+  console.error("Failed to import userController functions:", err.message);
+}
+
+// Helper to safely add a route
+function safeRoute(handler, name) {
+  if (typeof handler !== "function") {
+    console.warn(`Warning: ${name} is not a function. Route will not work.`);
+    return (req, res) =>
+      res.status(500).json({ message: `${name} handler missing` });
   }
-  return fn;
+  return handler;
 }
 
 // Routes
-router.post("/login", ensureFunction(loginUser, "loginUser"));
-router.post("/register", ensureFunction(Register, "Register"));
-router.get("/test", ensureFunction(VerifyToken, "VerifyToken"), (req, res) => {
+router.post("/login", safeRoute(loginUser, "loginUser"));
+router.post("/register", safeRoute(Register, "Register"));
+router.get("/test", safeRoute(VerifyToken, "VerifyToken"), (req, res) => {
   res.json({
     message: "Access granted",
     userId: req.user?.id || null,
