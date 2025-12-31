@@ -18,7 +18,7 @@ export default function Register() {
         password,
       });
       alert("Registered Successfully");
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       alert(error.response?.data?.message || "Registration failed");
     }
@@ -58,7 +58,7 @@ export default function Register() {
         </button>
 
         <p className="auth-footer">
-          Already have an account? <Link to="/">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </form>
     </div>
