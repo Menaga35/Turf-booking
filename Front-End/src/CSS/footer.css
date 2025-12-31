@@ -1,14 +1,14 @@
 .footer {
-  width: 100vw;                 /* FULL screen width */
+  width: 100vw;                 
   background-color: #f5f5f5;
-  padding: 18px 0;              /* remove side padding */
+  padding: 18px 0;              
   text-align: center;
   border-top: 1px solid #e5e7eb;
   margin-top: 50px;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;           /* force full-width */
+  margin-left: -50vw;           
   margin-right: -50vw;
 }
 

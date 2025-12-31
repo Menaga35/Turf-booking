@@ -1,6 +1,4 @@
-/* ===============================
-   RESET
-================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +6,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===============================
-   GLOBAL STYLES
-================================ */
+
 body {
   background-color: #f4f6f8;
   color: #111827;
