@@ -205,22 +205,9 @@
   color: #2d3748;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .turf-extra-info {
     grid-template-columns: 1fr;
   }
-}
-.map-container {
-  margin-top: 15px;
-  width: 100%;
-  height: 220px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
 }

@@ -47,7 +47,7 @@ export default function TurfDetails() {
     <>
       <Navbar />
 
-      {/* ================= TURF DETAILS ================= */}
+      
       <div className="turf-details-container">
         <div className="turf-image-box">
           <img src={state.image} alt={state.name} />
@@ -94,9 +94,9 @@ export default function TurfDetails() {
         </div>
       </div>
 
-      {/* ================= ABOUT & CONTACT ================= */}
+      
       <div className="turf-extra-info">
-        {/* ABOUT */}
+        
         <div className="about-turf">
           <h2>About {state.name}</h2>
           <p>
@@ -114,16 +114,16 @@ export default function TurfDetails() {
           </ul>
         </div>
 
-        {/* CONTACT */}
+       
         <div className="contact-turf">
           <h2>Contact</h2>
-          <p>📞 +91 98765 43210</p>
-          <p>📧 {state.name.toLowerCase()}@gmail.com</p>
-          <p>📍 Coimbatore, Tamil Nadu</p>
+          <p>+91 98765 43210</p>
+          <p>{state.name.toLowerCase()}@gmail.com</p>
+          <p>Coimbatore, Tamil Nadu</p>
         </div>
       </div>
 
-      {/* ================= REVIEWS ================= */}
+      
       <div className="reviews-section">
         <h2>Reviews</h2>
 
