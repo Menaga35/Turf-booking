@@ -46,7 +46,7 @@ export default function BookTurf() {
     setSelectedTime(null);
   };
 
-  /* -------- TIME HELPERS -------- */
+  
   const parseTime = (time) => {
     const [t, meridian] = time.split(" ");
     let [hours] = t.split(":");
@@ -70,7 +70,7 @@ export default function BookTurf() {
     return formatTime(parseTime(selectedTime) + duration);
   };
 
-  /* -------- CONFIRM RESERVATION -------- */
+  
   const handleConfirm = () => {
     if (!selectedTime) return;
 
@@ -83,14 +83,14 @@ export default function BookTurf() {
       price: pricePerHour * duration,
     };
 
-    // Save to localStorage
+    
     const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
     existingBookings.push(booking);
     localStorage.setItem("bookings", JSON.stringify(existingBookings));
 
     alert("Booking Confirmed!");
 
-    // Reset selections
+  
     setSelectedTime(null);
     setDuration(1);
   };
@@ -102,7 +102,7 @@ export default function BookTurf() {
         <h2 className="booking-title">Reserve Turf</h2>
 
         <div className="booking-card">
-          {/* DATE SECTION */}
+          
           <div className="date-section">
             <label>Select Date</label>
             <input

@@ -10,10 +10,10 @@ export default function MyBooking() {
     setBookings(savedBookings);
   }, []);
 
-  // ✅ Clear bookings function
+  
   const clearBookings = () => {
-    localStorage.removeItem("bookings"); // clear storage
-    setBookings([]); // clear state (page becomes empty)
+    localStorage.removeItem("bookings"); 
+    setBookings([]);
   };
 
   if (bookings.length === 0) {
@@ -33,7 +33,7 @@ export default function MyBooking() {
       <div className="mybooking-wrapper">
         <h2>My Booking History</h2>
 
-        {/* ✅ Clear Page Button */}
+        
         <button className="clear-btn" onClick={clearBookings}>
           Clear All Bookings
         </button>

@@ -16,9 +16,24 @@ export default function TurfDetails() {
     { user: "R", rating: 4, comment: "Good experience.", date: "Dec 18, 2025" },
     { user: "S", rating: 5, comment: "Best turf!", date: "Dec 10, 2025" },
     { user: "K", rating: 4, comment: "Nice turf.", date: "Dec 05, 2025" },
-    { user: "M", rating: 5, comment: "Loved the atmosphere.", date: "Nov 29, 2025" },
-    { user: "P", rating: 4, comment: "Parking could be better.", date: "Nov 20, 2025" },
-    { user: "J", rating: 5, comment: "One of the best turfs!", date: "Nov 15, 2025" },
+    {
+      user: "M",
+      rating: 5,
+      comment: "Loved the atmosphere.",
+      date: "Nov 29, 2025",
+    },
+    {
+      user: "P",
+      rating: 4,
+      comment: "Parking could be better.",
+      date: "Nov 20, 2025",
+    },
+    {
+      user: "J",
+      rating: 5,
+      comment: "One of the best turfs!",
+      date: "Nov 15, 2025",
+    },
   ];
 
   const INITIAL_COUNT = 5;
@@ -105,16 +120,6 @@ export default function TurfDetails() {
           <p>📞 +91 98765 43210</p>
           <p>📧 {state.name.toLowerCase()}@gmail.com</p>
           <p>📍 Coimbatore, Tamil Nadu</p>
-
-          {/* Google Map */}
-          <div className="map-container">
-            <iframe
-              title="turf-location"
-              src="https://www.google.com/maps?q=Coimbatore,Tamil%20Nadu&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
         </div>
       </div>
 

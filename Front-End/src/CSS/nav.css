@@ -9,36 +9,11 @@
 }
 
 /* ===============================
-   THEME VARIABLES
-================================ */
-:root {
-  --bg-color: #f4f6f8;
-  --card-bg: #ffffff;
-  --nav-bg: #ffffff;
-  --text-color: #111827;
-  --muted-text: #6b7280;
-  --accent: #22c55e;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* DARK MODE */
-[data-theme="dark"] {
-  --bg-color: #0f172a;
-  --card-bg: #020617;
-  --nav-bg: #020617;
-  --text-color: #e5e7eb;
-  --muted-text: #9ca3af;
-  --accent: #22c55e;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-}
-
-/* ===============================
    GLOBAL STYLES
 ================================ */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
+  background-color: #f4f6f8;
+  color: #111827;
 }
 
 a {
@@ -48,7 +23,7 @@ a {
 
 button {
   font-family: inherit;
-  transition: color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
 }
 
 /* ===============================
@@ -60,13 +35,12 @@ button {
   left: 0;
   width: 100%;
   height: 72px;
-  background: var(--nav-bg);
-  box-shadow: var(--shadow);
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-inner {
@@ -84,19 +58,14 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.nav-right {
-  position: relative;
-  display: flex;
-  align-items: center;
+  margin-left: -100px;
 }
 
 .logo-box {
   width: 42px;
   height: 42px;
-  background: var(--accent);
-  color: #fff;
+  background: #22c55e;
+  color: #ffffff;
   border-radius: 10px;
   font-weight: 700;
   display: flex;
@@ -121,12 +90,11 @@ button {
 
 .nav-center a {
   font-weight: 500;
-  color: var(--text-color);
-  transition: color 0.2s ease;
+  color: #111827;
 }
 
 .nav-center a:hover {
-  color: var(--accent);
+  color: #22c55e;
 }
 
 /* RIGHT */
@@ -134,43 +102,37 @@ button {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-/* Theme toggle */
-.theme-toggle {
-  font-size: 20px;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.2s ease;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.2);
+  margin-left: auto; 
+  margin-right: -100px;
 }
 
 /* Logout button */
 .logout-btn {
-  background: none;
+  background-color: #ef4444;   /* red */
+  color: #ffffff;
   border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  color: var(--text-color);
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .logout-btn:hover {
-  color: #ef4444;
+  background-color: #dc2626;
+}
+
+.logout-btn:active {
+  transform: scale(0.96);
 }
 
 /* ===============================
    PAGE SPACING
 ================================ */
 .page {
-  padding-top: 100px; /* so content is below navbar */
+  padding-top: 100px;
   text-align: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* ===============================
@@ -180,21 +142,19 @@ button {
   font-size: 48px;
   font-weight: 800;
   margin-top: 80px;
-  color: var(--text-color);
 }
 
 /* ===============================
    CARD
 ================================ */
 .card {
-  background: var(--card-bg);
-  color: var(--text-color);
-  box-shadow: var(--shadow);
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border-radius: 14px;
   padding: 24px;
   margin: 20px auto;
   max-width: 500px;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ===============================
@@ -204,13 +164,11 @@ button {
   padding: 12px 24px;
   border-radius: 8px;
   border: none;
-  cursor: pointer;
   font-weight: 600;
-  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: #22c55e;
   color: white;
 }
 
@@ -223,7 +181,7 @@ button {
 ================================ */
 @media (max-width: 900px) {
   .nav-center {
-    display: none; /* hide center links on mobile */
+    display: none;
   }
 
   .home-title {
@@ -237,52 +195,11 @@ button {
   }
 
   .nav-left .brand-name {
-    display: none; /* hide brand name on very small screens */
+    display: none;
   }
-}
-/* PROFILE CIRCLE */
-.profile-circle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #4f1bff;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 14px;
-}
 
-/* DROPDOWN */
-.profile-dropdown {
-  position: absolute;
-  top: 55px;
-  right: 0;
-  background: white;
-  width: 160px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  overflow: hidden;
-  z-index: 100;
-}
-
-.profile-dropdown a,
-.profile-dropdown button {
-  display: block;
-  width: 100%;
-  padding: 12px 14px;
-  text-align: left;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: none;
-  color: #111;
-}
-
-.profile-dropdown a:hover,
-.profile-dropdown button:hover {
-  background: #f3f4f6;
+  .logout-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
 }

@@ -1,58 +1,86 @@
+/* Wrapper for centering content */
 .profile-wrapper {
-  min-height: 100vh;
-  background: #f5f6fa;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* center horizontally */
+  margin-top: 80px;       /* spacing from navbar */
+  padding: 20px;
 }
 
+/* Profile card container */
 .profile-card {
-  background: #ffffff;
-  padding: 32px;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
   width: 100%;
-  max-width: 380px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   text-align: center;
 }
 
+/* Avatar circle */
 .profile-avatar {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: #4f1bff;
-  color: white;
-  font-size: 28px;
-  font-weight: 700;
+  background-color: #4a90e2; /* blue circle */
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 14px;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto 15px auto;
 }
 
+/* User name */
+.profile-card h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+/* User email */
 .profile-email {
   font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 22px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
+/* Buttons container */
 .profile-actions {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
+/* Buttons styling */
 .profile-btn {
-  padding: 12px;
-  border-radius: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 10px 0;
   border: none;
-  background: #4f1bff;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
+  border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
+.profile-btn:hover {
+  background-color: #357ab8;
+}
+
+/* Logout button specific styling */
 .profile-btn.logout {
-  background: #ef4444;
+  background-color: #e74c3c;
+}
+
+.profile-btn.logout:hover {
+  background-color: #c0392b;
+}
+
+/* Not logged in state */
+.profile-card h2,
+.profile-card p {
+  margin: 10px 0;
 }

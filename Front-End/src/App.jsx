@@ -6,6 +6,7 @@ import Turfs from "./Pages/Turf";
 import BookTurf from "./Pages/bookTurf";
 import MyBookings from "./Pages/Mybooking";
 import TurfDetails from "./Pages/turfDetails";
+import Profile from "./Pages/Profile";
 import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         {/* ================= PUBLIC ROUTES ================= */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
+        <Route path="/profile" element={<Profile />} />
 
         {/* Turf details MUST be public (Reserve button handles auth) */}
         <Route path="/turf-details" element={<TurfDetails />} />

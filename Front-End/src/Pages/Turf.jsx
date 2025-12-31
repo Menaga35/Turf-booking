@@ -63,21 +63,24 @@ const turfs = [
     name: "Galaxy Turf",
     sports: ["Cricket"],
     time: "06:00 AM - 10:00 PM",
-    image: "https://i.postimg.cc/1XrCwJ1S/turf8.jpg",
+    image:
+      "https://turftown.in/chennai/sports-venue/y-square-multisports-turf-morai-cricket",
   },
   {
     id: 9,
     name: "Premier Sports Park",
     sports: ["Football", "Cricket"],
     time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/3x6n4D1D/turf9.jpg",
+    image:
+      "https://res.cloudinary.com/dezcso0p1/image/upload/v1725442168/TurfSpot/turfs/vtxjukqgdvvdrnjsy4e6.jpg",
   },
   {
     id: 10,
     name: "Star Arena",
     sports: ["Football"],
     time: "06:30 AM - 10:30 PM",
-    image: "https://i.postimg.cc/hP6KJZQp/turf10.jpg",
+    image:
+      "https://res.cloudinary.com/dezcso0p1/image/upload/v1724479971/TurfSpot/turfs/espsvscif3ikrvxsdezt.jpg",
   },
   {
     id: 11,
@@ -151,48 +154,6 @@ const turfs = [
     sports: ["Football"],
     time: "06:00 AM - 10:30 PM",
     image: "https://i.postimg.cc/QC4HJr0x/turf20.jpg",
-  },
-  {
-    id: 21,
-    name: "Royal Champions Turf",
-    sports: ["Cricket"],
-    time: "05:30 AM - 10:30 PM",
-    image: "https://i.postimg.cc/Kz0R1DL0/turf21.jpg",
-  },
-  {
-    id: 22,
-    name: "Infinity Sports Arena",
-    sports: ["Football"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/Jnq3HqvR/turf22.jpg",
-  },
-  {
-    id: 23,
-    name: "Olympic Champions Ground",
-    sports: ["Football", "Cricket"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/8k8kFJvC/turf23.jpg",
-  },
-  {
-    id: 24,
-    name: "Victory Elite Arena",
-    sports: ["Cricket"],
-    time: "05:00 AM - 10:30 PM",
-    image: "https://i.postimg.cc/9F0gYx9r/turf24.jpg",
-  },
-  {
-    id: 25,
-    name: "Pro Infinity Turf",
-    sports: ["Football"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/HxShq2Zs/turf25.jpg",
-  },
-  {
-    id: 26,
-    name: "Champion Royal Ground",
-    sports: ["Football", "Cricket"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/X7bXh6Q3/turf26.jpg",
   },
 ];
 
