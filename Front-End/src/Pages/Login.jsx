@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../Utills/Api";
-import "../CSS/login.css"
+import "../CSS/Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -17,19 +17,19 @@ export default function Login() {
       const { data } = await API.post("/login", { email, password });
 
       // store token
-      localStorage.setItem("token", data.token || "dummy-token");
+      localStorage.setItem("token", data.token);
 
-      // store user
+      
       localStorage.setItem(
         "user",
         JSON.stringify({
           id: data.user.id,
-          name: data.user.name,
+          username: data.user.username,
           email: data.user.email,
         })
       );
 
-      navigate("/"); // navigate to Turfs page
+      navigate("/home");
     } catch (error) {
       setError(error.response?.data?.message || "Login failed");
     }
@@ -37,34 +37,40 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <form className="login-card" onSubmit={handleLogin}>
-        <h2>Welcome Back</h2>
-        <p>Login to continue</p>
+      <center>
+        <form className="login-card" onSubmit={handleLogin}>
+          <h2 className="login-title">Welcome Back</h2>
+          <p className="login-subtitle">Login to continue</p>
 
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-        />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            autoComplete="current-email"
+            required
+          />
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
-          required
-        />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            autoComplete="current-password"
+            required
+          />
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+          {error && <p className="error-text">{error}</p>}
 
-        <button type="submit">Login</button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
 
-        <p>
-          Don’t have an account? <Link to="/register">Sign up</Link>
-        </p>
-      </form>
+          <p className="login-footer">
+            Don’t have an account? <Link to="/register">Sign up</Link>
+          </p>
+        </form>
+      </center>
     </div>
   );
 }
