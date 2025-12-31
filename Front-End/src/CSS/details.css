@@ -5,7 +5,7 @@
   background: var(--bg-color);
 }
 
-/* LEFT IMAGE */
+
 .turf-image-box {
   flex: 1.2;
   position: relative;
@@ -65,9 +65,7 @@
   border-radius: 10px;
   cursor: pointer;
 }
-/* ===============================
-   REVIEWS
-================================ */
+
 .reviews-section {
   padding: 40px 80px 80px;
 }
@@ -125,16 +123,16 @@
 }
 
 
-/* Center Load More & Show Less buttons */
+
 .review-actions {
   display: flex;
-  justify-content: center;   /* center horizontally */
+  justify-content: center;   
   align-items: center;
   gap: 16px;
   margin-top: 25px;
 }
 
-/* Button styling (optional but recommended) */
+
 .load-more-btn,
 .show-less-btn {
   padding: 10px 22px;
@@ -163,7 +161,8 @@
 .show-less-btn:hover {
   background-color: #d1d5db;
 }
-/* About & Contact */
+
+
 .turf-extra-info {
   max-width: 1200px;
   margin: 40px auto;
