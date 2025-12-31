@@ -1,33 +1,28 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../Utills/Api";
-import "../CSS/register.css";
+import API from "../Utills/API";
+import "../CSS/registar.css";
 
 export default function Register() {
   const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     try {
-      await API.post("/auth/register", {
-        name,
+      await API.post("/register", {
+        username: name,
         email,
         password,
       });
-
       alert("Registered Successfully");
-      navigate("/login");
+      navigate("/");
     } catch (error) {
-      console.error(error.response?.data);
       alert(error.response?.data?.message || "Registration failed");
     }
   };
-
   return (
     <div className="auth-wrapper">
       <form className="auth-card" onSubmit={handleRegister}>
@@ -36,25 +31,25 @@ export default function Register() {
 
         <input
           type="text"
-          placeholder="Full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          placeholder="Full name"
           required
         />
 
         <input
           type="email"
-          placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
           required
         />
 
         <input
           type="password"
-          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         />
 
@@ -63,7 +58,7 @@ export default function Register() {
         </button>
 
         <p className="auth-footer">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/">Login</Link>
         </p>
       </form>
     </div>
