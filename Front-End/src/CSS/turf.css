@@ -41,6 +41,7 @@
 .search-box {
   display: flex;
   gap: 12px;
+  background-color: transparent;
 }
 
 .search-box input {
