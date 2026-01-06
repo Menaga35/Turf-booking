@@ -1,27 +1,23 @@
-// Import modules
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./Config/db"); // CommonJS import
+const connectDB = require("./Config/db");
 
-// Import routes
 const userRoutes = require("./Routes/userRoutes");
 const turfRoutes = require("./Routes/turfRoutes");
 const bookingRoutes = require("./Routes/bookingRoutes");
 
-// Load environment variables
 dotenv.config();
+connectDB();
 
-// Connect to MongoDB
-connectDB(); // <-- Should print "MongoDB Connected ✅"
-
-// Initialize Express
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Backend is running ✅");
+});
 
 app.use("/api/user", userRoutes);
 app.use("/api/turfs", turfRoutes);
