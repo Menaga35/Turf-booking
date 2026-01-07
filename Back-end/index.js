@@ -1,34 +1,28 @@
-// Import modules
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./Config/db"); // CommonJS import
+const connectDB = require("./Config/db");
 
-// Import routes
 const userRoutes = require("./Routes/userRoutes");
 const turfRoutes = require("./Routes/turfRoutes");
 const bookingRoutes = require("./Routes/bookingRoutes");
 
-// Load environment variables
 dotenv.config();
+connectDB();
 
-// Connect to MongoDB
-connectDB(); // <-- Should print "MongoDB Connected ✅"
-
-// Initialize Express
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
-
 
 app.use("/api/user", userRoutes);
 app.use("/api/turfs", turfRoutes);
 app.use("/api/bookings", bookingRoutes);
 
+// test route
+app.get("/api", (req, res) => {
+  res.send("Backend running on Vercel ✅");
+});
 
-// const PORT = process.env.PORT || 5000;
-// // app.listen(PORT, () => {
-// //   console.log(`Server running on port ${PORT}`);
-// // });
+// REQUIRED for Vercel
+module.exports = app;
