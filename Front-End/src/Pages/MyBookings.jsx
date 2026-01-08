@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
-import "../CSS/myBooking.css";
+import "../css/myBooking.css";
 
 export default function MyBooking() {
   const [bookings, setBookings] = useState([]);

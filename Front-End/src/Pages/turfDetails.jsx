@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../Components/Navbar";
-import "../CSS/details.css";
+import "../css/details.css";
 
 export default function TurfDetails() {
   const { state } = useLocation();

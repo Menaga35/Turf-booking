@@ -1,4 +1,4 @@
-import "../CSS/about.css";
+import "../css/about.css";
 
 export default function TurfAboutContact({ turf }) {
   return (
