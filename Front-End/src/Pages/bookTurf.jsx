@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../Components/Navbar"; // make sure the path is correct
-import "../css/bookTurf.css";
+import "../CSS/bookTurf.css";
 
 export default function BookTurf() {
   const { state } = useLocation();

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import "../css/turf.css";
+import "../CSS/turf.css";
 
 const turfs = [
   {

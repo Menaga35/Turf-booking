@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import "../css/home.css";
+import "../CSS/home.css";
 import Footer from "../Components/Footer";
 
 // Slider images
