@@ -4,7 +4,7 @@ import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Turfs from "./Pages/Turf";
 import BookTurf from "./Pages/bookTurf";
-import MyBookings from "./Pages/Mybooking";
+import MyBookings from "./Pages/MyBookings";
 import TurfDetails from "./Pages/turfDetails";
 import ProtectedRoute from "./Components/ProtectedRoute";
 
