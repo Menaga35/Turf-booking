@@ -1,0 +1,107 @@
+
+.mybooking-wrapper {
+  padding: 40px 60px;
+  min-height: 100vh;
+  background: transparent;
+  margin-top: 70px;
+}
+
+
+.mybooking-empty {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mybooking-empty h2 {
+  font-size: 26px;
+  color: #6b7280;
+}
+
+
+.mybooking-wrapper h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+
+.clear-btn {
+  margin-bottom: 24px;
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.clear-btn:hover {
+  background-color: darkred;
+}
+
+
+.bookings-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+.booking-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+.booking-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #111827;
+}
+
+.booking-card strong {
+  font-weight: 600;
+}
+
+
+@media (max-width: 1200px) {
+  .bookings-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .bookings-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .mybooking-wrapper {
+    padding: 30px 20px;
+  }
+
+  .bookings-list {
+    grid-template-columns: 1fr;
+  }
+}

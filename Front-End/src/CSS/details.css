@@ -1,0 +1,212 @@
+.turf-details-container {
+  display: flex;
+  gap: 40px;
+  padding: 120px 80px;
+  background: var(--bg-color);
+}
+
+
+.turf-image-box {
+  flex: 1.2;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.turf-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+}
+
+/* RIGHT INFO */
+.turf-info-box {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.turf-info-box h3 {
+  margin-bottom: 10px;
+}
+
+.description {
+  color: var(--muted-text);
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.reserve-btn {
+  width: 100%;
+  padding: 16px;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.reviews-section {
+  padding: 40px 80px 80px;
+}
+
+.reviews-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.review-card {
+  display: flex;
+  gap: 16px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.review-left .avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f97316;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-right {
+  flex: 1;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stars {
+  color: #fb923c;
+  font-size: 16px;
+}
+
+.review-date {
+  font-size: 14px;
+  color: var(--muted-text);
+}
+
+.review-text {
+  margin-top: 6px;
+  color: var(--text-color);
+}
+
+
+
+.review-actions {
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+
+.load-more-btn,
+.show-less-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn {
+  background-color: oklch(0.49 0.31 275.75 / 1);
+  color: white;
+}
+
+.show-less-btn {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.load-more-btn:hover {
+  background-color: oklch(0.49 0.31 275.75 / 2);
+}
+
+.show-less-btn:hover {
+  background-color: #d1d5db;
+}
+
+
+.turf-extra-info {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.about-turf,
+.contact-turf {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.about-turf h2,
+.contact-turf h2 {
+  margin-bottom: 12px;
+  color: #1a202c;
+}
+
+.about-turf p {
+  color: #4a5568;
+  margin-bottom: 12px;
+}
+
+.about-turf ul {
+  padding-left: 18px;
+}
+
+.about-turf li {
+  margin-bottom: 6px;
+  color: #2d3748;
+}
+
+.contact-turf p {
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+
+@media (max-width: 768px) {
+  .turf-extra-info {
+    grid-template-columns: 1fr;
+  }
+}
