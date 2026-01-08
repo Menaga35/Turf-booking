@@ -1,59 +1,67 @@
-// import { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import API from "../Utills/Api";
-// // import "../CSS/Login.css";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import API from "../Utills/Api";
+// import "../CSS/register.css";
 
-// export default function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-//   const navigate = useNavigate();
+export default function Register() {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     setError("");
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await API.post("/user/register", {
+        username: name,
+        email,
+        password,
+      });
 
-//     try {
-//       const { data } = await API.post("/user/login", { email, password });
+      alert("Registered Successfully");
+      navigate("/login");
+    } catch (error) {
+      alert(error.response?.data?.message || "Registration failed");
+    }
+  };
 
-//       localStorage.setItem("token", data.token);
-//       localStorage.setItem("user", JSON.stringify(data.user));
+  return (
+    <div className="auth-wrapper">
+      <form className="auth-card" onSubmit={handleRegister}>
+        <h2 className="auth-title">Create Account</h2>
 
-//       navigate("/"); // home route
-//     } catch (error) {
-//       setError(error.response?.data?.message || "Login failed");
-//     }
-//   };
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Full name"
+          required
+        />
 
-//   return (
-//     <div className="login-container">
-//       <form className="login-card" onSubmit={handleLogin}>
-//         <h2>Login</h2>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
+          required
+        />
 
-//         <input
-//           type="email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           placeholder="Email"
-//           required
-//         />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
 
-//         <input
-//           type="password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           placeholder="Password"
-//           required
-//         />
+        <button type="submit" className="auth-btn">
+          Sign up
+        </button>
 
-//         {error && <p className="error-text">{error}</p>}
-
-//         <button type="submit">Login</button>
-
-//         <p>
-//           Don’t have an account? <Link to="/register">Register</Link>
-//         </p>
-//       </form>
-//     </div>
-//   );
-// }
+        <p className="auth-footer">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </form>
+    </div>
+  );
+}
