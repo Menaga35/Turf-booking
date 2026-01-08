@@ -3,19 +3,20 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import Turfs from "./Pages/Turf";
-import BookTurf from "./Pages/bookTurf";
+import BookTurf from "./Pages/BookTurfs";
 import MyBookings from "./Pages/MyBookings";
-import TurfDetails from "./Pages/turfDetails";
+import TurfDetails from "./Pages/TurfDetail";
 import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/turf-details" element={<TurfDetails />} />
 
+        {/* Protected Routes */}
         <Route
           path="/"
           element={
@@ -24,6 +25,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/turfs"
           element={
@@ -32,6 +34,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/turf-details"
+          element={
+            <ProtectedRoute>
+              <TurfDetails />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/book/:turfId"
           element={
@@ -40,6 +52,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/my-bookings"
           element={
@@ -49,6 +62,7 @@ function App() {
           }
         />
 
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
