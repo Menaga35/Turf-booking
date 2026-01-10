@@ -1,7 +1,8 @@
 body {
-  background-color: white; /* Remove grey */
+  background-color: white;
   margin: 0;
   padding: 0;
+  margin-left: 150px;
 }
 /* .home-page {
   background-color: #F8F9FA;       
