@@ -1,67 +1,76 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../Utills/Api";
+import API from "../Utills/api";
 import "../CSS/login.css";
 
-export default function Register() {
-  const navigate = useNavigate();
-  const [name, setName] = useState("");
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      await API.post("/user/register", {
-        username: name,
-        email,
-        password,
-      });
+    setError("");
 
-      alert("Registered Successfully");
-      navigate("/login");
+    try {
+      const { data } = await API.post("/login", { email, password });
+
+      // store token
+      localStorage.setItem("token", data.token);
+
+      // store user
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: data.user.id,
+          username: data.user.username,
+          email: data.user.email,
+        })
+      );
+
+      navigate("/home");
     } catch (error) {
-      alert(error.response?.data?.message || "Registration failed");
+      setError(error.response?.data?.message || "Login failed");
     }
   };
 
   return (
-    <div className="auth-wrapper">
-      <form className="auth-card" onSubmit={handleRegister}>
-        <h2 className="auth-title">Create Account</h2>
+    <div className="login-container">
+      <center>
+        <form className="login-card" onSubmit={handleLogin}>
+          <h2 className="login-title">Welcome Back</h2>
+          <p className="login-subtitle">Login to continue</p>
 
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Full name"
-          required
-        />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            autoComplete="current-email"
+            required
+          />
 
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email address"
-          required
-        />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            autoComplete="current-password"
+            required
+          />
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
+          {error && <p className="error-text">{error}</p>}
 
-        <button type="submit" className="auth-btn">
-          Sign up
-        </button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
 
-        <p className="auth-footer">
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </form>
+          <p className="login-footer">
+            Don’t have an account? <Link to="/register">Sign up</Link>
+          </p>
+        </form>
+      </center>
     </div>
   );
 }
