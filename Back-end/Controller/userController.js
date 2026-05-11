@@ -1,35 +1,34 @@
-const User = require("../Model/User.js");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const User = require("../Model/User");
 
-/* =========================
-   REGISTER USER
-========================= */
+const bcrypt = require("bcryptjs");
+
+const jwt = require("jsonwebtoken");
+
+// REGISTER
 const Register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Validation
+    console.log(req.body);
+
     if (!username || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({
+        message: "All fields required",
+      });
     }
 
-    // Check username
-    const oldName = await User.findOne({ username });
-    if (oldName) {
-      return res.status(400).json({ message: "Username already exists" });
+    const userExists = await User.findOne({
+      email,
+    });
+
+    if (userExists) {
+      return res.status(400).json({
+        message: "User already exists",
+      });
     }
 
-    // Check email
-    const oldEmail = await User.findOne({ email });
-    if (oldEmail) {
-      return res.status(400).json({ message: "Email already exists" });
-    }
-
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user
     const newUser = await User.create({
       username,
       email,
@@ -37,61 +36,66 @@ const Register = async (req, res) => {
     });
 
     res.status(201).json({
-      message: "User registered successfully",
-      user: {
-        id: newUser._id,
-        username: newUser.username,
-        email: newUser.email,
-      },
+      message: "Register Successful",
+      user: newUser,
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    console.log(error);
+
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };
 
-/* =========================
-   LOGIN USER
-========================= */
-const loginUser = async (req, res) => {
+// LOGIN
+const Loginuser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validation
-    if (!email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
-
-    // Find user
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ message: "User not found" });
-    }
-
-    // Password check
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid password" });
-    }
-
-    // JWT token
-    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
-      expiresIn: "10d",
+    const user = await User.findOne({
+      email,
     });
+
+    if (!user) {
+      return res.status(400).json({
+        message: "User not found",
+      });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(400).json({
+        message: "Invalid Password",
+      });
+    }
+
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.SECRET_KEY,
+      {
+        expiresIn: "7d",
+      },
+    );
 
     res.status(200).json({
-      message: "Login successful",
+      message: "Login Successful",
       token,
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
+      user,
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    console.log(error);
+
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };
 
-module.exports = { Register, loginUser };
+module.exports = {
+  Register,
+  Loginuser,
+};

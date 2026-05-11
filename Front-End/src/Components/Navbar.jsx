@@ -21,7 +21,7 @@ export default function Navbar() {
 
         {/* CENTER */}
         <div className="nav-center">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/turfs">Turfs</Link>
           <Link to="/my-bookings">My Bookings</Link>
         </div>

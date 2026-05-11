@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../Utills/api";
-import "../CSS/login.css";
+import API from "../Utils/API";
+import "../CSS/Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,10 +15,10 @@ export default function Login() {
 
     try {
       const { data } = await API.post("/login", { email, password });
+      
 
       // store token
       localStorage.setItem("token", data.token);
-
       // store user
       localStorage.setItem(
         "user",
@@ -26,7 +26,7 @@ export default function Login() {
           id: data.user.id,
           username: data.user.username,
           email: data.user.email,
-        })
+        }),
       );
 
       navigate("/home");
