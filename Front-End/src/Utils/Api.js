@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://turf-booking-jet-six.vercel.app/api",
+  baseURL: "https://turf-booking-indol.vercel.app/api",
 });
 
 // token
