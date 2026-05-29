@@ -63,8 +63,7 @@ const turfs = [
     name: "Galaxy Turf",
     sports: ["Cricket"],
     time: "06:00 AM - 10:00 PM",
-    image:
-      "https://turftown.in/chennai/sports-venue/y-square-multisports-turf-morai-cricket",
+    image: "https://i.postimg.cc/05JGtMY5/galaxy.jpg",
   },
   {
     id: 9,
@@ -95,14 +94,7 @@ const turfs = [
     name: "Infinity Arena",
     sports: ["Football"],
     time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/6qMfDhRg/turf12.jpg",
-  },
-  {
-    id: 13,
-    name: "Olympic Turf",
-    sports: ["Football", "Cricket"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/T3vM4Qy5/turf13.jpg",
+    image: "https://i.postimg.cc/9XGRRGP1/infinity-areana.jpg",
   },
 ];
 
