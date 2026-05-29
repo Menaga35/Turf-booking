@@ -103,11 +103,11 @@ export default function TurfDetails() {
           </p>
 
           <ul>
-            <li>⚽ Sports: {state.sports.join(", ")}</li>
-            <li>🌱 Surface: Artificial Grass</li>
-            <li>🏟️ Size: 7s</li>
-            <li>💡 Flood Lights Available</li>
-            <li>🚗 Parking Available</li>
+            <li><i className="bi bi-dribbble me-2"></i>Sports: {state.sports.join(", ")}</li>
+            <li><i className="bi bi-tree me-2"></i> Surface: Artificial Grass</li>
+            <li><i className="bi bi-bounding-box me-2"></i> Size: 7s</li>
+            <li><i className="bi bi-lightbulb me-2"></i>Flood Lights Available</li>
+            <li>  <i className="bi bi-car-front me-2"></i> Parking Available</li>
           </ul>
         </div>
 

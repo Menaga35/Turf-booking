@@ -31,9 +31,9 @@ const turfs = [
   {
     id: 4,
     name: "Elite Turf Park",
-    sports: ["Cricket"],
+    sports: ["Football"],
     time: "05:00 AM - 10:00 PM",
-    image: "https://i.postimg.cc/7Z0Y3N7m/turf4.jpg",
+    image: "https://i.postimg.cc/rwjLPK89/elite.jpg",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const turfs = [
     name: "Victory Sports Ground",
     sports: ["Football", "Cricket"],
     time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/9Q2B9nV0/turf6.jpg",
+    image: "https://i.postimg.cc/KvKkFhK9/victory-sports.jpg",
   },
   {
     id: 7,
@@ -103,57 +103,6 @@ const turfs = [
     sports: ["Football", "Cricket"],
     time: "06:00 AM - 11:00 PM",
     image: "https://i.postimg.cc/T3vM4Qy5/turf13.jpg",
-  },
-  {
-    id: 14,
-    name: "Victory Park",
-    sports: ["Cricket"],
-    time: "05:30 AM - 10:30 PM",
-    image: "https://i.postimg.cc/Zqv1QZgF/turf14.jpg",
-  },
-  {
-    id: 15,
-    name: "Elite Sports Arena",
-    sports: ["Football"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/6XzN7Bhv/turf15.jpg",
-  },
-  {
-    id: 16,
-    name: "Pro Champions Turf",
-    sports: ["Football", "Cricket"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/N0T9g6yw/turf16.jpg",
-  },
-
-  // New 10 turfs
-  {
-    id: 17,
-    name: "Galaxy Champions",
-    sports: ["Football"],
-    time: "06:00 AM - 10:00 PM",
-    image: "https://i.postimg.cc/8kFh8KJz/turf17.jpg",
-  },
-  {
-    id: 18,
-    name: "Champion Sports Arena",
-    sports: ["Cricket"],
-    time: "05:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/Xv5q0XgR/turf18.jpg",
-  },
-  {
-    id: 19,
-    name: "Elite Victory Ground",
-    sports: ["Football", "Cricket"],
-    time: "06:00 AM - 11:00 PM",
-    image: "https://i.postimg.cc/c49G9n6H/turf19.jpg",
-  },
-  {
-    id: 20,
-    name: "Pro Star Arena",
-    sports: ["Football"],
-    time: "06:00 AM - 10:30 PM",
-    image: "https://i.postimg.cc/QC4HJr0x/turf20.jpg",
   },
 ];
 

@@ -5,7 +5,7 @@ const connectDB = require("./Config/db");
 
 const userRoutes = require("./Routes/userRoutes");
 const turfRoutes = require("./Routes/turfRoutes");
-const bookingRoutes = require("./Routes/bookingRoutes");
+// const bookingRoutes = require("./Routes/bookingRoutes");
 
 dotenv.config();
 connectDB();
@@ -18,7 +18,7 @@ app.use(express.json());
 // ROUTES
 app.use("/api/users", userRoutes);
 app.use("/api/turfs", turfRoutes);
-app.use("/api/bookings", bookingRoutes);
+// app.use("/api/bookings", bookingRoutes);
 
 // TEST ROUTE
 app.get("/api", (req, res) => {
