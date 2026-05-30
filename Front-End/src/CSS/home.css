@@ -2,14 +2,7 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
-  margin-left: 150px;
 }
-/* .home-page {
-  background-color: #F8F9FA;       
-  min-height: 100px;                            
-  box-sizing: border-box;  
-  margin-top: 70px;  
-} */
 
 
 .home-container {
@@ -26,9 +19,6 @@ body {
 .hero-left {
   flex: 1;
   min-width: 300px;
-   margin-left: -80px;
-   margin-right: -40px;
-   /* margin-top: -90px; */
 }
 
 .hero-left h1 {
