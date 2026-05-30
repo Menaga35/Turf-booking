@@ -16,7 +16,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/users",
+  baseURL: "https://turf-booking-backend-od0i.onrender.com",
 });
 
 export default API;
