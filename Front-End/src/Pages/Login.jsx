@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import API from "../Utils/Api";
+import API from "../Utils/API";
 import "../CSS/Login.css";
 
 export default function Login() {
@@ -15,7 +15,6 @@ export default function Login() {
 
     try {
       const { data } = await API.post("/login", { email, password });
-      
 
       // store token
       localStorage.setItem("token", data.token);
