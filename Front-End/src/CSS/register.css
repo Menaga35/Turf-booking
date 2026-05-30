@@ -18,7 +18,7 @@ body {
 
 .auth-card {
   width: 360px;
-  background: #ffffff;
+  background: #ffffff !important;
   padding: 32px 28px;
   border-radius: 14px;
   box-shadow:
