@@ -29,13 +29,13 @@
   /* margin-top: -100px; */
   width: 100%;
   max-width: 900px;
-  color: black;
 }
 
 
 .date-section label {
   font-weight: 600;
   font-size: 16px;
+  color: black;
 }
 
 .date-section input {
