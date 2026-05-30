@@ -33,7 +33,6 @@
 .search-box {
   display: flex;
   gap: 12px;
-  background-color: white;
 }
 
 .search-box input {
