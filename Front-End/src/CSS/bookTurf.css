@@ -46,6 +46,7 @@
   border: 1px solid #ccc;
   font-size: 14px;
   background: white !important;
+  color: black;
 }
 
 .date-actions {
@@ -133,6 +134,7 @@
   border-radius: 12px;
   padding: 18px 22px;
   background: #ffffff;
+  color: black;
   cursor: pointer;
   text-align: center;
   transition: all 0.25s ease;
