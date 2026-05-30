@@ -52,6 +52,7 @@ body {
   border: 1px solid #d1d5db;
   font-size: 14px;
   background-color: whitesmoke !important;
+  color: black;
 }
 
 .auth-card input:focus {
